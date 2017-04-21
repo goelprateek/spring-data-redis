@@ -125,6 +125,16 @@ public interface DefaultedRedisConnection extends RedisConnection {
 		return keyCommands().dump(key);
 	}
 
+	@Override
+	default List<byte[]> sort(byte[] key, SortParameters params) {
+		return keyCommands().sort(key, params);
+	}
+
+	@Override
+	default Long sort(byte[] key, SortParameters params, byte[] sortKey) {
+		return keyCommands().sort(key, params, sortKey);
+	}
+
 	// STRING COMMANDS
 
 	@Override
